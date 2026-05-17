@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Кафе | Меню и бронирование</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Шапка с навигацией -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>🍽️ Вкусное Место</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#menu">Меню</a></li>
+                    <li><a href="#booking">Бронь</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Домашняя кухня <br> с любовью</h2>
+            <p>Уютное кафе в сердце города</p>
+            <a href="#booking" class="btn">Забронировать стол</a>
+        </div>
+    </section>
+
+    <!-- Меню -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2>Наше меню</h2>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <img src="https://img.iamcook.ru/old/upl/recipes/cat/u-f57d296ea7d66597625d5826c0552c3d.jpg" alt="Бургер">
+                    <h3>Классический бургер</h3>
+                    <p>Говяжья котлета, сыр, салат, соус</p>
+                    <span class="price">2500 ₸</span>
+                </div>
+                <div class="menu-card">
+                    <img src="https://grill-bbq.ru/wp-content/uploads/2019/06/pizza-margarita-na-grile.jpg" alt="Пицца">
+                    <h3>Маргарита</h3>
+                    <p>Томатный соус, моцарелла, базилик</p>
+                    <span class="price">3500 ₸</span>
+                </div>
+                <div class="menu-card">
+                    <img src="https://art-lunch.ru/content/uploads/2018/07/Greek_salad_01.jpg" alt="Салат">
+                    <h3>Греческий салат</h3>
+                    <p>Огурцы, помидоры, фета, оливки</p>
+                    <span class="price">2200 ₸</span>
+                </div>
+                <div class="menu-card">
+                    <img src="https://grill-bbq.ru/wp-content/uploads/2021/07/shashlyk-iz-kuritsy.jpg" alt="Шашлык">
+                    <h3>Шашлык</h3>
+                    <p>Шашлык барани, говяжьи, люля кебаб, 300 грамм</p>
+                    <span class="price">7000 $</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Форма бронирования -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <h2>Забронировать столик</h2>
+            <form id="bookingForm">
+                <input type="text" id="name" placeholder="Ваше имя" required>
+                <input type="tel" id="phone" placeholder="Номер телефона" required>
+                <input type="number" id="guests" placeholder="Количество гостей" required>
+                <input type="datetime-local" id="datetime" required>
+                <button type="submit">Отправить заявку</button>
+            </form>
+            <p id="formMessage" style="display:none; color:green; margin-top:15px;"></p>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts" class="contacts">
+        <div class="container">
+            <h2>Контакты</h2>
+            <p>📍 Ул Пушкина, Дом колатушкина, Актобе</p>
+            <p>📞 +7 (777) 123-45-67</p>
+            <p>⏰ Ежедневно: 11:00 – 23:00</p>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <p>&copy; 2025 Вкусное Место. Все права вкусны.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
