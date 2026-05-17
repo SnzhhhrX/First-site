@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuasarAi — Обучение астрофизике с ИИ</title>
+  <link rel="stylesheet" href="stl.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Syne:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <canvas id="starfield"></canvas>
+
+  <nav class="navbar">
+    <div class="logo">
+      <span class="logo-icon">✦</span>
+      <span class="logo-text">QuasarAi</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero">Главная</a></li>
+      <li><a href="#topics">Темы</a></li>
+      <li><a href="#ai-chat">ИИ-Ассистент</a></li>
+      <li><a href="#quiz">Квиз</a></li>
+    </ul>
+    <button class="nav-cta" onclick="scrollToChat()">Спросить ИИ</button>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge">🚀 ИИ × Астрофизика</div>
+      <h1 class="hero-title">
+        Исследуй<br/>
+        <span class="gradient-text">Вселенную</span><br/>
+        вместе с ИИ
+      </h1>
+      <p class="hero-sub">
+        Персональный ИИ-наставник объяснит квантовую гравитацию, чёрные дыры
+        и тёмную материю — на любом уровне сложности.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="scrollToChat()">Начать обучение</button>
+        <button class="btn-ghost" onclick="document.getElementById('topics').scrollIntoView({behavior:'smooth'})">Темы курса</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Вопросов</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">12</span><span class="stat-label">Модулей</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">24/7</span><span class="stat-label">ИИ онлайн</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="planet-ring">
+        <div class="planet"></div>
+        <div class="orbit orbit-1"><div class="satellite"></div></div>
+        <div class="orbit orbit-2"><div class="satellite s2"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="topics" id="topics">
+    <div class="section-header">
+      <p class="section-label">// УЧЕБНАЯ ПРОГРАММА</p>
+      <h2 class="section-title">Что ты изучишь</h2>
+    </div>
+    <div class="topics-grid">
+      <div class="topic-card"><div class="topic-icon">⚫</div><h3>Чёрные дыры</h3><p>Горизонт событий, сингулярность, излучение Хокинга и парадокс информации.</p><button class="topic-ask" onclick="askTopic('Чёрные дыры')">Спросить ИИ →</button></div>
+      <div class="topic-card"><div class="topic-icon">🌑</div><h3>Тёмная материя</h3><p>WIMP, аксионы, гравитационное линзирование и кривые вращения галактик.</p><button class="topic-ask" onclick="askTopic('Тёмная материя')">Спросить ИИ →</button></div>
+      <div class="topic-card featured"><div class="topic-icon">💥</div><h3>Большой взрыв</h3><p>Космологическое расширение, инфляция, реликтовое излучение и нуклеосинтез.</p><button class="topic-ask" onclick="askTopic('Большой взрыв')">Спросить ИИ →</button></div>
+      <div class="topic-card"><div class="topic-icon">⭐</div><h3>Нейтронные звёзды</h3><p>Пульсары, магнетары, гравитационные волны и слияния нейтронных звёзд.</p><button class="topic-ask" onclick="askTopic('Нейтронные звёзды')">Спросить ИИ →</button></div>
+      <div class="topic-card"><div class="topic-icon">🔬</div><h3>Квантовая гравитация</h3><p>Теория струн, петлевая квантовая гравитация и квантовая пенная структура.</p><button class="topic-ask" onclick="askTopic('Квантовая гравитация')">Спросить ИИ →</button></div>
+      <div class="topic-card"><div class="topic-icon">🌍</div><h3>Экзопланеты</h3><p>Методы обнаружения, зоны обитаемости и поиск биосигнатур.</p><button class="topic-ask" onclick="askTopic('Экзопланеты')">Спросить ИИ →</button></div>
+    </div>
+  </section>
+
+  <section class="ai-section" id="ai-chat">
+    <div class="section-header">
+      <p class="section-label">// ИИ-АССИСТЕНТ</p>
+      <h2 class="section-title">Твой личный астрофизик</h2>
+      <p class="section-desc">Задавай любые вопросы — от основ до передовых исследований</p>
+    </div>
+    <div class="chat-container">
+      <div class="chat-header">
+        <div class="ai-avatar"><div class="avatar-pulse"></div><span>✦</span></div>
+        <div class="ai-info">
+          <span class="ai-name">QuasarAI</span>
+          <span class="ai-status">● онлайн</span>
+        </div>
+        <button class="chat-clear" onclick="clearChat()">Очистить</button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="message ai-message">
+          <div class="msg-bubble">Привет! Я QuasarAi — ИИ-ассистент по астрофизике. 🌌<br/><br/>Спроси меня о чёрных дырах, квантовой гравитации, происхождении Вселенной или любой другой теме.</div>
+        </div>
+      </div>
+      <div class="quick-questions">
+        <button class="quick-btn" onclick="sendQuick('Что такое горизонт событий у чёрной дыры?')">Горизонт событий</button>
+        <button class="quick-btn" onclick="sendQuick('Как возникла Вселенная?')">Начало Вселенной</button>
+        <button class="quick-btn" onclick="sendQuick('Что такое тёмная энергия?')">Тёмная энергия</button>
+        <button class="quick-btn" onclick="sendQuick('Объясни теорию относительности просто')">Теория относительности</button>
+      </div>
+      <div class="chat-input-area">
+        <textarea id="userInput" placeholder="Спроси что угодно об астрофизике..." rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+        <button class="send-btn" onclick="sendMessage()" id="sendBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="quiz-section" id="quiz">
+    <div class="section-header">
+      <p class="section-label">// ПРОВЕРЬ СЕБЯ</p>
+      <h2 class="section-title">ИИ-Квиз</h2>
+      <p class="section-desc">ИИ сгенерирует вопрос и оценит твой ответ</p>
+    </div>
+    <div class="quiz-container">
+      <div class="quiz-topic-select">
+        <p>Выбери тему квиза:</p>
+        <div class="quiz-topics">
+          <button class="qtopic active" data-t="Чёрные дыры" onclick="setQuizTopic(this)">Чёрные дыры</button>
+          <button class="qtopic" data-t="Большой взрыв" onclick="setQuizTopic(this)">Большой взрыв</button>
+          <button class="qtopic" data-t="Звёзды" onclick="setQuizTopic(this)">Звёзды</button>
+          <button class="qtopic" data-t="Галактики" onclick="setQuizTopic(this)">Галактики</button>
+          <button class="qtopic" data-t="Квантовая физика" onclick="setQuizTopic(this)">Квантовая физика</button>
+        </div>
+        <button class="btn-primary" onclick="generateQuiz()" id="quizGenBtn">🎲 Сгенерировать вопрос</button>
+      </div>
+      <div class="quiz-card" id="quizCard" style="display:none">
+        <div class="quiz-question" id="quizQuestion"></div>
+        <textarea id="quizAnswer" placeholder="Напиши свой ответ здесь..." rows="4"></textarea>
+        <button class="btn-primary" onclick="checkAnswer()" id="checkBtn">Проверить ответ</button>
+        <div class="quiz-result" id="quizResult" style="display:none"></div>
+        <button class="btn-ghost" onclick="generateQuiz()" id="nextQuizBtn" style="display:none;margin-top:12px">Следующий вопрос</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="logo"><span class="logo-icon">✦</span><span class="logo-text">QuasarAi</span></div>
+      <p class="footer-text">Исследуй Вселенную. Учись с ИИ. Открывай бесконечное.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
